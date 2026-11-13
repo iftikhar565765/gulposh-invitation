@@ -1,0 +1,1426 @@
+/* ═══════════════════════════════════════════════════════════════
+   GULPOSH · sections.css — the rose-garden suite
+   ---------------------------------------------------------------
+   The invitation is a cream card resting in a gulnar garden at
+   golden hour: a shamiyana canopy draped over its head, kalamkari
+   rose vines spilling from its corners, samai lamps at its feet.
+   Paper chapters wear a hexagonal jaali ghost; night chapters
+   glow with bandhani butis. Every colour is a token overwritten
+   at runtime by main.js applyTheme().
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ═══ SCENE FOUNDATION ══════════════════════════════════════════ */
+
+.scene {
+  position: relative;
+  padding: var(--scene-pad-y) var(--scene-pad-x);
+  background-color: var(--ivory);
+  overflow: hidden;
+}
+
+.scene-body {
+  position: relative;
+  z-index: 2;
+  max-width: var(--measure);
+  margin-inline: auto;
+  text-align: center;
+}
+
+/* paper chapters — sandalwood ivory with a rani jaali ghost */
+.scene--story, .scene--details, .scene--palette,
+.scene--venue, .scene--rsvp {
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='62'%3E%3Cg fill='none' stroke='%23A4284C' stroke-opacity='.05'%3E%3Cpath d='M18 6 L36 6 L45 21.5 L36 37 L18 37 L9 21.5 Z'/%3E%3Cpath d='M18 12.5 L30.5 12.5 L36.75 21.5 L30.5 30.5 L18 30.5 L11.75 21.5 Z'/%3E%3Cpath d='M36 37 L36 47'/%3E%3Cpath d='M18 37 L18 47'/%3E%3Ccircle cx='27' cy='21.5' r='2.2'/%3E%3Ccircle cx='27' cy='47' r='1.6'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* night chapters — golden-hour gulnar with a gold jaali ghost */
+.scene--std, .scene--itinerary, .scene--countdown, .scene--closing {
+  background-color: var(--night);
+  background-image:
+    radial-gradient(120% 68% at 50% -8%, color-mix(in srgb, var(--wine) 46%, transparent) 0%, transparent 60%),
+    radial-gradient(80% 44% at 50% 110%, color-mix(in srgb, var(--crimson) 14%, transparent) 0%, transparent 66%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='62'%3E%3Cg fill='none' stroke='%23D69A45' stroke-opacity='.07'%3E%3Cpath d='M18 6 L36 6 L45 21.5 L36 37 L18 37 L9 21.5 Z'/%3E%3Cpath d='M18 12.5 L30.5 12.5 L36.75 21.5 L30.5 30.5 L18 30.5 L11.75 21.5 Z'/%3E%3Cpath d='M36 37 L36 47'/%3E%3Cpath d='M18 37 L18 47'/%3E%3Ccircle cx='27' cy='21.5' r='2.2'/%3E%3Ccircle cx='27' cy='47' r='1.6'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* the chapter divider — a running paisley where two grounds meet */
+.scene:not(.scene--hero)::before {
+  content: "";
+  position: absolute;
+  top: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(340px, 64%);
+  height: 30px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='52' height='30'%3E%3Cg fill='none' stroke='%23B37733' stroke-opacity='.5'%3E%3Cpath d='M22 24 C 10 24 6 14 12 7 C 17 2 26 4 27 11 C 27.8 16 24 19 20.5 17.5 C 18 16.4 17.6 13.5 19.5 12.2'/%3E%3Cpath d='M27.5 8 C 33 3 41 4 44 10'/%3E%3Ccircle cx='46' cy='13' r='1.4' fill='%23B37733' fill-opacity='.5'/%3E%3Ccircle cx='4' cy='26' r='1.4' fill='%23B37733' fill-opacity='.5'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: center;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 22%, #000 78%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 22%, #000 78%, transparent);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ═══ Ⅰ · THE SHAMIYANA — the invitation card in the garden ═════ */
+
+.scene--hero {
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-inline: 0;
+}
+
+.kstage {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(64px, 9.5vw, 110px) clamp(14px, 4vw, 44px) clamp(70px, 9.5vw, 116px);
+  background-color: var(--night);
+  background-image:
+    radial-gradient(110% 60% at 50% -6%, color-mix(in srgb, var(--wine) 52%, transparent) 0%, transparent 62%),
+    radial-gradient(64% 34% at 50% 104%, color-mix(in srgb, var(--crimson) 16%, transparent) 0%, transparent 68%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='62'%3E%3Cg fill='none' stroke='%23D69A45' stroke-opacity='.06'%3E%3Cpath d='M18 6 L36 6 L45 21.5 L36 37 L18 37 L9 21.5 Z'/%3E%3Cpath d='M18 12.5 L30.5 12.5 L36.75 21.5 L30.5 30.5 L18 30.5 L11.75 21.5 Z'/%3E%3Cpath d='M36 37 L36 47'/%3E%3Cpath d='M18 37 L18 47'/%3E%3Ccircle cx='27' cy='21.5' r='2.2'/%3E%3Ccircle cx='27' cy='47' r='1.6'/%3E%3C/g%3E%3C/svg%3E");
+}
+/* golden-hour halo behind the card */
+.kstage::before {
+  content: "";
+  position: absolute;
+  top: 6%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: min(560px, 88vw);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    color-mix(in srgb, var(--parchment) 12%, transparent) 0%,
+    color-mix(in srgb, var(--crimson) 8%, transparent) 38%,
+    transparent 70%);
+  z-index: 0;
+  pointer-events: none;
+}
+/* the garden wall — hairline frame at the stage foot */
+.kstage::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-line) 16%, var(--gold-line) 84%, transparent);
+  z-index: 3;
+}
+
+.kstage__frame {
+  position: absolute;
+  inset: clamp(12px, 2vw, 20px);
+  border: 1px solid color-mix(in srgb, var(--champagne) 34%, transparent);
+  pointer-events: none;
+  z-index: 1;
+}
+.kstage__frame::before,
+.kstage__frame::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 12px;
+  border: 1px solid var(--gold-line);
+  border-radius: 100% 100% 100% 4px;
+  rotate: 8deg;
+  background: var(--night);
+}
+.kstage__frame::before { top: -6px; left: calc(50% - 6px); }
+.kstage__frame::after  { bottom: -7px; left: calc(50% - 6px); }
+
+.kstage__mandala {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(120%, 920px);
+  opacity: .2;
+  z-index: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+/* ── the card — sandalwood paper floating in the garden ───────── */
+
+.kcard {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 640px);
+  margin-inline: auto;
+  background:
+    linear-gradient(168deg,
+      color-mix(in srgb, var(--paper-raised) 97%, var(--parchment)) 0%,
+      var(--paper-raised) 52%,
+      color-mix(in srgb, var(--ivory) 82%, var(--parchment) 18%) 100%);
+  border-radius: var(--card-radius);
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--champagne-soft) 58%, transparent),
+    inset 0 0 0 7px transparent,
+    var(--shadow-card);
+}
+/* a faint hex jaali printed into the paper */
+.kcard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='62'%3E%3Cg fill='none' stroke='%23A4284C' stroke-opacity='.05'%3E%3Cpath d='M18 6 L36 6 L45 21.5 L36 37 L18 37 L9 21.5 Z'/%3E%3Ccircle cx='27' cy='21.5' r='2.2'/%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+/* the shamiyana canopy draped across the card's head */
+.kcard__canopy {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 1;
+  pointer-events: none;
+  filter: drop-shadow(0 14px 26px rgba(46, 10, 21, .35));
+}
+
+/* canopy materials — silk scallops, gold gota, hanging latkans */
+.kcan-scallop--silk { fill: color-mix(in srgb, var(--rose) 88%, var(--crimson) 12%); }
+.kcan-scallop--paper { fill: var(--paper-raised); }
+.kcan-edge { stroke: var(--champagne-soft); stroke-width: 1.4; fill: none; }
+.kcan-edge--soft { stroke: var(--gold-faint); stroke-width: 1; fill: none; }
+.kcan-gota { fill: var(--gold-bright); stroke: var(--champagne-soft); stroke-width: .6; }
+.kcan-bell { fill: var(--gold-bright); stroke: var(--gold-line); stroke-width: .7; }
+.kcan-bell-clap { fill: var(--gilding); }
+.kcan-string { stroke: var(--gold-line); stroke-width: 1; fill: none; }
+.kcan-bead { fill: var(--champagne-soft); }
+.kcan-bead--jewel { fill: var(--burgundy); opacity: .85; }
+.kcan-tassel { fill: var(--burgundy); opacity: .92; }
+.kcan-tassel--light { fill: var(--crimson); opacity: .92; }
+.kcan-drop { fill: var(--gold-bright); stroke: var(--champagne-soft); stroke-width: .6; }
+
+/* the crown — everything under the canopy */
+.kcard__crown {
+  position: relative;
+  aspect-ratio: 660 / 380;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 15% 16% 3%;
+}
+
+.kcard-ganesha { display: grid; justify-items: center; }
+.kcard-ganesha__art {
+  width: clamp(52px, 12%, 80px);
+  height: auto;
+  filter: drop-shadow(0 3px 8px rgba(46, 10, 21, .28));
+}
+
+.kcard-shloka {
+  margin-top: 2%;
+  font-family: var(--font-deva);
+  font-size: clamp(.74rem, 2.2vw, .95rem);
+  color: var(--burgundy);
+}
+
+.kcard-blessing {
+  margin-top: 3.4%;
+  color: var(--champagne-soft);
+  letter-spacing: .26em;
+  font-size: clamp(.55rem, 1.7vw, .7rem);
+}
+
+.kcard-invite {
+  margin-top: 2.6%;
+  font-family: var(--font-ui);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  font-size: clamp(.6rem, 1.9vw, .78rem);
+  color: var(--ink-soft);
+}
+
+/* paisley-and-rule divider */
+.kcard-rule {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4%;
+  color: var(--champagne);
+}
+.kcard-rule i {
+  display: block;
+  width: clamp(40px, 12%, 74px);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--paper-line));
+}
+.kcard-rule i:last-child { transform: scaleX(-1); }
+.kcard-rule svg { width: 13px; height: 13px; fill: var(--champagne); }
+.kcard-rule--crown { margin-top: auto; }
+
+/* the body — names and particulars on the paper */
+.kcard__rect {
+  position: relative;
+  margin-inline: 5.76%;
+  border-left: 1px solid var(--gold-faint);
+  border-right: 1px solid var(--gold-faint);
+  padding: clamp(26px, 5.6vw, 46px) clamp(18px, 6vw, 52px) clamp(30px, 6vw, 52px);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* the floor — a plinth rule with a centre bud */
+.kcard__rect::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 7px;
+  background:
+    linear-gradient(90deg, transparent 0 46%, var(--paper-line) 46% 54%, transparent 54%) top / 100% 1px no-repeat;
+}
+
+.kcard-names {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .2rem;
+  outline: none;
+}
+
+.kcard-name {
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: clamp(3rem, 10.5vw, 5.6rem);
+  line-height: 1.02;
+  background: linear-gradient(172deg,
+    color-mix(in srgb, var(--burgundy) 76%, var(--crimson) 24%) 8%,
+    color-mix(in srgb, var(--burgundy) 90%, var(--wine) 10%) 44%,
+    var(--burgundy) 62%,
+    color-mix(in srgb, var(--burgundy-deep) 82%, var(--champagne-soft) 18%) 92%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 2px 12px color-mix(in srgb, var(--crimson) 22%, transparent));
+}
+
+.kcard-and {
+  font-family: var(--font-editorial);
+  font-size: clamp(.8rem, 2.4vw, 1.05rem);
+  letter-spacing: .5em;
+  text-indent: .5em;
+  text-transform: uppercase;
+  color: var(--champagne-soft);
+  padding-block: .5rem;
+}
+
+/* the ornamental date row */
+.kcard-date { margin-top: clamp(16px, 3.4vw, 26px); }
+.kcard-date-week {
+  color: var(--champagne-soft);
+  font-size: clamp(.6rem, 1.9vw, .74rem);
+}
+.kcard-date-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(10px, 2.6vw, 20px);
+  margin-top: 6px;
+}
+.kcard-date-side {
+  color: var(--ink-soft);
+  font-size: clamp(.72rem, 2.4vw, .95rem);
+}
+.kcard-date-num {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.9rem, 9.4vw, 4.9rem);
+  line-height: 1;
+  background: linear-gradient(172deg,
+    color-mix(in srgb, var(--champagne) 62%, #F7E3B0) 10%,
+    color-mix(in srgb, var(--champagne) 82%, #FBEBC6) 34%,
+    var(--champagne) 56%,
+    color-mix(in srgb, var(--champagne-soft) 78%, #8A5E2C) 88%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.kcard-date-orn {
+  width: clamp(16px, 4vw, 24px);
+  height: auto;
+  stroke: var(--champagne-soft);
+  fill: none;
+  stroke-width: 1.6;
+}
+.kcard-date-orn--flip { transform: scaleX(-1); }
+
+.kcard-lotus { width: clamp(86px, 22%, 128px); margin-top: clamp(14px, 3vw, 22px); }
+.kcard-lotus path { stroke: var(--champagne-soft); fill: none; stroke-width: 1.5; }
+.kcard-lotus .kcard-lotus-rule { stroke: var(--gold-faint); stroke-width: 1; }
+
+.kcard-muhurat {
+  margin-top: clamp(12px, 2.6vw, 18px);
+  color: var(--ink-soft);
+  font-size: clamp(.62rem, 2vw, .76rem);
+  letter-spacing: .22em;
+}
+.kcard-muhurat-sep { color: var(--champagne); }
+
+.kcard-venue { margin-top: clamp(16px, 3.4vw, 26px); display: grid; justify-items: center; gap: 6px; }
+.kcard-venue-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--champagne-soft);
+  font-size: clamp(.54rem, 1.7vw, .66rem);
+}
+.kcard-venue-label svg { width: 9px; height: 9px; fill: var(--champagne); }
+.kcard-venue-name {
+  font-family: var(--font-editorial);
+  font-size: clamp(1.15rem, 3.8vw, 1.7rem);
+  letter-spacing: .05em;
+  color: var(--ink);
+  line-height: 1.3;
+}
+.kcard-venue-address {
+  font-family: var(--font-ui);
+  font-weight: 400;
+  font-size: clamp(.68rem, 2vw, .8rem);
+  letter-spacing: .06em;
+  color: var(--ink-soft);
+  max-width: 40ch;
+}
+
+.kcard-closing {
+  margin-top: clamp(16px, 3.4vw, 26px);
+  font-size: clamp(1.5rem, 4.6vw, 2.2rem);
+  color: var(--burgundy);
+}
+
+.kcard-heart { width: 18px; height: 22px; margin-top: 10px; fill: var(--crimson); }
+
+/* ── the corners — every edge of the card alive ───────────────── */
+
+.korn {
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+  user-select: none;
+}
+
+.korn--spray-tl { top: -3.4%; left: -7%; width: 21%; opacity: .96; }
+.korn--spray-tr { top: -3.4%; right: -7%; width: 21%; transform: scaleX(-1); opacity: .96; }
+.korn--cascade-tl, .korn--cascade-tr,
+.korn--jasmine-l, .korn--jasmine-r {
+  filter: drop-shadow(0 4px 10px rgba(46, 10, 21, .3));
+}
+.korn--cascade-tl { top: 9%; left: -13%; width: 30%; }
+.korn--cascade-tr { top: 9%; right: -13%; width: 30%; transform: scaleX(-1); }
+.korn--bell-tl { top: 1.5%; left: 16.5%; width: 11.5%; }
+.korn--bell-tr { top: 1.5%; right: 16.5%; width: 11.5%; transform: scaleX(-1); }
+.korn--jasmine-l { bottom: 15%; left: -7%; width: 19%; }
+.korn--jasmine-r { bottom: 15%; right: -7%; width: 19%; transform: scaleX(-1); }
+.korn--pavilion { bottom: 7.5%; left: -13%; width: 27%; opacity: .95; }
+.korn--drape { bottom: 5%; right: -11%; width: 21%; opacity: .95; }
+.korn--lotus-bl { bottom: -2.5%; left: 9%; width: 15%; }
+.korn--lotus-br { bottom: -2%; right: 11%; width: 12%; transform: scaleX(-1); }
+.korn--spray-bl { bottom: 1.5%; left: -3.5%; width: 16%; }
+.korn--spray-br { bottom: 1.5%; right: -3.5%; width: 16%; transform: scaleX(-1); }
+.korn--lamp-bl { bottom: .8%; left: 20%; width: 7.5%; }
+.korn--lamp-br { bottom: .8%; right: 21%; width: 7.5%; transform: scaleX(-1); }
+.korn--leaf-bl { bottom: -3%; left: 2%; width: 19%; }
+.korn--leaf-br { bottom: -3%; right: 2%; width: 19%; transform: scaleX(-1); }
+
+.korn--sparkle { inset: 0; width: 100%; height: 100%; }
+.gp-spark { fill: var(--gilding); animation: kspark-blink 3.4s ease-in-out infinite; }
+.gp-spark-x { stroke: var(--gilding); stroke-width: 1; animation: kspark-blink 4.2s ease-in-out .8s infinite; }
+.gp-spark-dot { fill: var(--gilding); opacity: .8; }
+@keyframes kspark-blink {
+  0%, 100% { opacity: .25; }
+  50% { opacity: 1; }
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--night-faint);
+}
+.hero-scroll__block {
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: .58rem;
+  letter-spacing: .34em;
+  text-indent: .34em;
+}
+.hero-scroll__arrow {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: var(--gold-line);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  animation: hero-dip 2.6s var(--ease) infinite;
+}
+@keyframes hero-dip {
+  0%, 100% { transform: translateY(0); opacity: .8; }
+  50% { transform: translateY(5px); opacity: 1; }
+}
+
+/* ═══ Ⅱ · THEIR STORY — the garden album ═══════════════════════ */
+
+.parch-wash { fill: color-mix(in srgb, var(--rose) 18%, transparent); stroke: none; }
+.parch-line { stroke: var(--champagne-soft); fill: none; stroke-width: 1.3; }
+.parch-line--inner { stroke-width: .8; opacity: .8; }
+.parch-bead { fill: var(--champagne-soft); stroke: none; }
+
+.scene--story .scene-body { text-align: left; max-width: 760px; }
+
+.chapter-num {
+  position: absolute;
+  top: -.42em;
+  left: -.06em;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(6.4rem, 13vw, 9.4rem);
+  line-height: 1;
+  color: color-mix(in srgb, var(--rose) 42%, transparent);
+  pointer-events: none;
+  user-select: none;
+}
+
+.scene--story .display { margin-top: 14px; max-width: 12ch; }
+.scene--story .prose { margin-top: 26px; max-width: 58ch; }
+.scene--story .prose--dropcap { margin-top: 30px; }
+
+.story-quote {
+  margin: 38px 0 0 clamp(0px, 6%, 44px);
+  max-width: 44ch;
+}
+.story-quote__rule { width: 132px; margin-bottom: 14px; }
+.story-quote__text {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.3rem, 3.4vw, 1.8rem);
+  line-height: 1.4;
+  color: var(--burgundy);
+}
+.story-quote__label {
+  margin-top: 10px;
+  color: var(--champagne-soft);
+  font-size: .6rem;
+}
+
+.story-note {
+  margin: 30px clamp(0px, 6%, 44px) 0;
+  display: grid;
+  gap: 4px;
+}
+.story-note-credit {
+  font-size: .92rem;
+  color: var(--charcoal);
+}
+
+.story-captions {
+  margin-top: 34px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 30px;
+}
+.story-caption {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-hand);
+  font-size: 1.02rem;
+  color: var(--ink-soft);
+}
+.story-caption svg { width: 34px; height: auto; flex: none; }
+
+/* ═══ Ⅲ · THE SHAGUN PLATE — save the date ═════════════════════ */
+
+.scene-body--std { padding-top: clamp(18px, 4vh, 38px); }
+
+.std-band {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(64% 40% at 50% 30%, color-mix(in srgb, var(--crimson) 14%, transparent), transparent 72%);
+  pointer-events: none;
+}
+
+.std-emblem { width: 64px; }
+.std-emblem .orn-line { stroke: var(--gilding-soft); }
+.std-emblem .orn-dot { fill: var(--gilding-soft); }
+
+.std-title {
+  margin-top: 18px;
+  font-family: var(--font-editorial);
+  font-weight: 400;
+  font-size: clamp(2rem, 5.6vw, 3.1rem);
+  line-height: 1.1;
+  color: var(--sunset);
+}
+
+.std-crossing {
+  margin-top: 6px;
+  font-size: clamp(1.3rem, 3.6vw, 1.9rem);
+  color: var(--rose);
+}
+
+.std-numerals {
+  margin-top: clamp(18px, 4vh, 30px);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--fs-numerals);
+  letter-spacing: .14em;
+  background: linear-gradient(172deg,
+    color-mix(in srgb, var(--champagne) 62%, #F7E3B0) 10%,
+    color-mix(in srgb, var(--champagne) 82%, #FBEBC6) 34%,
+    var(--champagne) 56%,
+    color-mix(in srgb, var(--champagne-soft) 78%, #8A5E2C) 88%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.std-display {
+  margin: 14px auto 0;
+  max-width: 44ch;
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: 1.8;
+  color: var(--night-ink);
+}
+
+.std-note {
+  margin-top: 18px;
+  font-family: var(--font-ui);
+  font-size: .78rem;
+  letter-spacing: .04em;
+  color: var(--night-faint);
+}
+
+.std-actions {
+  margin-top: 26px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+}
+
+.std-seal {
+  position: relative;
+  width: clamp(4.6rem, 13vw, 5.6rem);
+  aspect-ratio: 1;
+  margin: clamp(30px, 6vh, 48px) auto 0;
+  display: grid;
+  place-items: center;
+}
+.seal__art { position: absolute; inset: 0; width: 100%; height: 100%; filter: drop-shadow(0 8px 20px rgba(46, 10, 21, .5)); }
+.seal__initials { position: relative; font-size: 1.3rem; color: var(--parchment); }
+
+/* ═══ Ⅳ · THE TWO-DAY THREAD — celebrations ════════════════════ */
+
+.details-intro { margin-top: 16px; }
+
+.programme {
+  position: relative;
+  list-style: none;
+  margin: clamp(34px, 6vh, 54px) auto 0;
+  max-width: 720px;
+  display: grid;
+  gap: clamp(30px, 5vh, 44px);
+}
+/* the thread — a gold vine stitching the events together */
+.programme::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: 50%;
+  width: 1px;
+  background: linear-gradient(180deg,
+    transparent,
+    var(--paper-line) 6% 94%,
+    transparent);
+  z-index: 0;
+}
+
+.programme-item {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 22px;
+  align-items: center;
+}
+
+.programme-niche {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  justify-self: center;
+}
+.programme-arch { position: absolute; inset: 0; width: 100%; height: 100%; }
+.programme-orn {
+  position: relative;
+  width: 34px;
+  height: 34px;
+}
+
+.programme-text { grid-row: 1; display: grid; gap: 6px; }
+.programme-item:nth-child(odd) .programme-text {
+  grid-column: 2;
+  justify-items: start;
+  text-align: left;
+}
+.programme-item:nth-child(even) .programme-text {
+  grid-column: 1;
+  grid-row: 1;
+  grid-column: 1 / 2;
+  justify-items: end;
+  text-align: right;
+}
+.programme-item:nth-child(even) { grid-template-columns: 1fr 64px; }
+.programme-item:nth-child(even) .programme-niche { grid-column: 2; }
+.programme-item:nth-child(even) .programme-text { grid-column: 1; }
+
+.programme-index {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: .82rem;
+  letter-spacing: .2em;
+  color: var(--champagne-soft);
+}
+.programme-name {
+  font-family: var(--font-editorial);
+  font-weight: 400;
+  font-size: clamp(1.3rem, 3.4vw, 1.8rem);
+  line-height: 1.2;
+  color: var(--ink);
+}
+.programme-value {
+  font-family: var(--font-ui);
+  font-size: .8rem;
+  letter-spacing: .06em;
+  color: var(--burgundy);
+}
+.programme-note {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: 1.75;
+  color: var(--ink-soft);
+  max-width: 40ch;
+}
+.programme-foot {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+}
+.programme-foot i {
+  width: 26px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--paper-line), transparent);
+}
+.programme-item:nth-child(odd) .programme-foot i:first-child { display: none; }
+.programme-item:nth-child(even) .programme-foot i:last-child { display: none; }
+.programme-item:nth-child(odd) .programme-foot i:last-child {
+  background: linear-gradient(90deg, transparent, var(--paper-line));
+}
+.programme-item:nth-child(even) .programme-foot i:first-child {
+  background: linear-gradient(90deg, var(--paper-line), transparent);
+}
+.programme-foot b {
+  width: 8px;
+  height: 10px;
+  border: 1px solid var(--gold-line);
+  border-radius: 100% 100% 100% 3px;
+  rotate: 8deg;
+}
+
+/* the particulars — a four-panel plate below the thread */
+.particulars {
+  position: relative;
+  max-width: 760px;
+  margin: clamp(44px, 8vh, 70px) auto 0;
+  padding: clamp(22px, 4vw, 34px);
+  background: color-mix(in srgb, var(--paper-raised) 72%, transparent);
+  border: 1px solid var(--paper-line);
+  border-radius: var(--card-radius);
+}
+.particulars::before {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border: 1px solid var(--gold-faint);
+  border-radius: 3px;
+  pointer-events: none;
+}
+.particulars-eyebrow {
+  margin-bottom: 18px;
+  color: var(--champagne-soft);
+  font-size: .6rem;
+}
+.particulars-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.particular {
+  padding: 16px 18px;
+  display: grid;
+  gap: 7px;
+  justify-items: start;
+  text-align: left;
+}
+.particular:nth-child(odd) { border-right: 1px solid var(--paper-line); }
+.particular:nth-child(n + 3) { border-top: 1px solid var(--paper-line); }
+.particular-label { color: var(--champagne-soft); font-size: .6rem; }
+.particular-value {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 1.02rem;
+  line-height: 1.55;
+  color: var(--ink);
+}
+.particular-note {
+  font-family: var(--font-body);
+  font-size: .9rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+}
+
+/* ═══ Ⅴ · THE SILK SWATCHES — colours of the day ═══════════════ */
+
+.scene--palette { background-color: var(--parchment); }
+
+.palette-intro { margin-top: 16px; max-width: 52ch; margin-inline: auto; }
+
+.palette-swatches {
+  list-style: none;
+  padding: 0;
+  margin: clamp(30px, 5vh, 44px) auto 0;
+  max-width: 760px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px 18px;
+}
+.palette-swatches li { display: grid; justify-items: center; }
+.palette-swatches li:nth-child(odd) { transform: translateY(-8px); }
+
+.swatch {
+  width: clamp(84px, 22%, 108px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid var(--paper-line);
+  box-shadow:
+    inset 0 0 0 4px color-mix(in srgb, var(--paper-raised) 85%, transparent),
+    inset 0 0 0 5px var(--paper-line),
+    0 10px 22px -12px color-mix(in srgb, var(--night) 45%, transparent);
+  transition: transform .3s var(--ease);
+}
+.swatch:hover { transform: translateY(-4px); }
+.swatch-name {
+  margin-top: 10px;
+  font-family: var(--font-ui);
+  font-size: .66rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  text-align: center;
+  line-height: 1.5;
+}
+
+.dresscode {
+  margin: clamp(34px, 6vh, 52px) auto 0;
+  max-width: 52ch;
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+}
+.dresscode-lotus { width: 72px; height: auto; }
+.dresscode-label { color: var(--champagne-soft); font-size: .6rem; }
+.dresscode-title {
+  font-family: var(--font-editorial);
+  font-size: clamp(1.5rem, 4vw, 2.1rem);
+  color: var(--ink);
+}
+.dresscode-note {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: 1.8;
+  color: var(--ink-soft);
+}
+
+/* ═══ Ⅵ · THE GARLAND — festivities ════════════════════════════ */
+
+.scene--itinerary .display { color: var(--sunset); }
+
+.day-words {
+  list-style: none;
+  margin: clamp(30px, 5vh, 46px) auto 0;
+  padding: 0;
+  max-width: 640px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 26px 26px;
+}
+.day-words::before { content: none; }
+
+.day-word {
+  width: 108px;
+  display: grid;
+  justify-items: center;
+  gap: 9px;
+  position: relative;
+}
+.day-word::before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: calc(-14px);
+  width: 14px;
+  height: 1px;
+  background: var(--gold-faint);
+}
+.day-word:first-child::before { content: none; }
+.day-word__bulb {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--glass-edge);
+  background: color-mix(in srgb, var(--night-deep) 62%, transparent);
+}
+.day-word__bulb circle { fill: color-mix(in srgb, var(--champagne) 46%, transparent); }
+.day-word__text {
+  font-family: var(--font-editorial);
+  font-size: clamp(.92rem, 2.4vw, 1.1rem);
+  letter-spacing: .06em;
+  color: var(--sunset-soft);
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* ═══ Ⅶ · THE MANDAP COURT — venue ═════════════════════════════ */
+
+.venue-title {
+  font-family: var(--font-editorial);
+  font-weight: 400;
+  font-size: clamp(1.9rem, 5vw, 3rem);
+  line-height: 1.25;
+  color: var(--ink);
+  max-width: 22ch;
+  margin-inline: auto;
+}
+
+.venue-stage {
+  position: relative;
+  width: min(100%, 560px);
+  aspect-ratio: 560 / 400;
+  margin: clamp(30px, 5vh, 46px) auto 0;
+}
+.venue-mandap {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.venue-diya {
+  position: absolute;
+  right: 3%;
+  bottom: 2%;
+  width: 21%;
+  filter: drop-shadow(0 6px 14px rgba(46, 10, 21, .35));
+}
+.venue-curtain {
+  position: absolute;
+  top: -4%;
+  width: 22%;
+  filter: drop-shadow(0 8px 16px rgba(46, 10, 21, .3));
+}
+.venue-curtain--l { left: -7%; }
+.venue-curtain--r { right: -7%; transform: scaleX(-1); }
+
+.venue-description {
+  margin: 26px auto 0;
+  max-width: 54ch;
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: 1.85;
+  color: var(--ink);
+}
+
+.venue-sublines {
+  margin: 26px auto 0;
+  max-width: 480px;
+  display: grid;
+}
+.venue-sublines .sub {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  padding-block: 12px;
+}
+.venue-sublines .sub + .sub { border-top: 1px solid var(--paper-line); }
+.venue-sublines .label-caps { color: var(--champagne-soft); font-size: .6rem; }
+.venue-sublines em {
+  font-family: var(--font-hand);
+  font-style: normal;
+  font-size: 1.06rem;
+  color: var(--ink-soft);
+}
+
+.venue-address {
+  margin: 30px auto 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 46ch;
+}
+.venue-address .icon {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  fill: none;
+  stroke: var(--burgundy);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.venue-address p {
+  font-family: var(--font-ui);
+  font-size: .84rem;
+  letter-spacing: .04em;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  text-align: left;
+}
+
+.venue-actions { margin-top: 28px; }
+
+/* ═══ Ⅷ · THE KOLAM — countdown ════════════════════════════════ */
+
+.countdown-wreath {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(150%, 760px);
+  opacity: .5;
+  z-index: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  animation: wreath-turn 240s linear infinite;
+}
+@keyframes wreath-turn {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.count-script {
+  font-family: var(--font-editorial);
+  font-weight: 400;
+  font-size: clamp(1.9rem, 5.4vw, 3rem);
+  line-height: 1.25;
+  color: var(--sunset);
+}
+.count-script em {
+  font-style: normal;
+  font-family: var(--font-script);
+  color: var(--rose);
+}
+
+.count-clock {
+  margin: clamp(28px, 5vh, 44px) auto 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.count-unit {
+  position: relative;
+  width: 88px;
+  padding: 15px 6px 13px;
+  border: 1px solid var(--glass-edge);
+  border-radius: 3px;
+  background: color-mix(in srgb, var(--night-deep) 52%, transparent);
+  display: grid;
+  gap: 5px;
+}
+.count-unit::before {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border: 1px solid var(--gold-ghost);
+  border-radius: 2px;
+  pointer-events: none;
+}
+.count-num {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 2.1rem;
+  line-height: 1;
+  color: var(--ember);
+  font-variant-numeric: tabular-nums;
+}
+.count-label {
+  color: var(--night-faint);
+  font-size: .56rem;
+}
+
+.count-summary {
+  margin-top: 18px;
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  color: var(--night-ink);
+}
+.count-message {
+  margin-top: 18px;
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  color: var(--night-ink);
+}
+.count-date {
+  margin-top: 26px;
+  color: var(--night-faint);
+  font-size: .62rem;
+  line-height: 1.8;
+}
+.count-date__zone { color: var(--champagne-soft); }
+
+/* ═══ Ⅸ · THE REPLY DESK — rsvp ════════════════════════════════ */
+
+.watermark-script {
+  position: absolute;
+  top: 46%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-script);
+  font-size: clamp(5rem, 15vw, 11rem);
+  white-space: nowrap;
+  color: color-mix(in srgb, var(--burgundy) 6%, transparent);
+  pointer-events: none;
+  user-select: none;
+}
+
+.rsvp-card {
+  position: relative;
+  max-width: 620px;
+  margin-inline: auto;
+  padding: clamp(26px, 5vw, 44px) clamp(20px, 4.6vw, 40px) clamp(30px, 5vw, 46px);
+  background:
+    linear-gradient(168deg,
+      color-mix(in srgb, var(--paper-raised) 97%, white) 0%,
+      color-mix(in srgb, var(--ivory) 86%, var(--parchment) 14%) 100%);
+  border-radius: var(--card-radius);
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--champagne-soft) 55%, transparent),
+    var(--shadow-card);
+}
+.rsvp-card::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1px solid var(--gold-faint);
+  border-radius: 3px;
+  pointer-events: none;
+}
+
+.rsvp-title {
+  font-family: var(--font-editorial);
+  font-weight: 400;
+  font-size: clamp(2rem, 5.4vw, 2.9rem);
+  line-height: 1.15;
+  color: var(--ink);
+}
+.rsvp-deadline {
+  margin-top: 10px;
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  color: var(--ink-soft);
+}
+.rsvp-ornament { max-width: 320px; margin: 20px auto 0; }
+
+/* ═══ Ⅹ · THE PETAL SHOWER — closing ═══════════════════════════ */
+
+.scene--closing { overflow: hidden; }
+
+.closing-bloom {
+  position: absolute;
+  top: -4%;
+  width: clamp(120px, 18vw, 200px);
+  z-index: 1;
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(0 8px 20px rgba(46, 10, 21, .4));
+}
+.closing-bloom--l { left: -1%; }
+.closing-bloom--r { right: -1%; }
+
+.closing-bloom--r.reveal { transform: scaleX(-1) translateY(22px); }
+.closing-bloom--r.reveal.in-view,
+.no-js .closing-bloom--r.reveal { transform: scaleX(-1); }
+.closing-bloom.reveal.in-view,
+.no-js .closing-bloom.reveal { transform: none; }
+
+.closing-script {
+  font-family: var(--font-hand);
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  color: var(--night-faint);
+}
+.closing-names {
+  margin-top: 8px;
+  font-size: clamp(2.8rem, 8vw, 4.6rem);
+  line-height: 1.15;
+  color: var(--rose);
+  text-shadow: 0 2px 30px color-mix(in srgb, var(--crimson) 34%, transparent);
+}
+.closing-date {
+  margin-top: 14px;
+  color: var(--night-faint);
+  font-size: .64rem;
+  line-height: 1.8;
+}
+.closing-message {
+  margin: 26px auto 0;
+  max-width: 50ch;
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: 1.9;
+  color: var(--night-ink);
+}
+.closing-seal {
+  position: relative;
+  width: clamp(4.6rem, 13vw, 5.6rem);
+  aspect-ratio: 1;
+  margin: clamp(28px, 5vh, 44px) auto 0;
+  display: grid;
+  place-items: center;
+}
+.closing-actions {
+  margin-top: clamp(26px, 5vh, 40px);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+}
+.closing-actions .btn { color: var(--sunset-soft); }
+
+/* ═══ THE FOOTER — the garden gate plaque ═══════════════════════ */
+
+.footer {
+  position: relative;
+  padding: clamp(38px, 7vh, 60px) var(--scene-pad-x) clamp(30px, 5vh, 44px);
+  background: var(--night-deep);
+  text-align: center;
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+}
+.footer-ornament { width: min(320px, 70%); }
+.footer .small { color: var(--night-faint); }
+.footer-credit a {
+  color: var(--champagne-soft);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold-faint);
+  transition: color .25s ease, border-color .25s ease;
+}
+.footer-credit a:hover { color: var(--ember); }
+
+/* ══════════════════════════════════════════════════════════════
+   GULPOSH ORNAMENT PAINT — every decoration class below resolves
+   to a theme token, so the whole garden recolours with the mood.
+   ══════════════════════════════════════════════════════════════ */
+
+/* svg geometry defaults */
+.korn, .kstage__mandala, .countdown-wreath, .venue-diya, .venue-curtain,
+.std-emblem, .kcard-lotus, .kcard-date-orn, .footer-ornament,
+.rsvp-ornament svg, .story-quote__rule, .story-caption svg {
+  height: auto;
+}
+.rsvp-ornament svg { width: 100%; display: block; }
+.footer-ornament { display: block; }
+
+/* gulab rose */
+.gp-rose-a { fill: color-mix(in srgb, var(--crimson) 52%, var(--rose)); }
+.gp-rose-b { fill: color-mix(in srgb, var(--burgundy) 55%, var(--crimson)); }
+.gp-rose-c { fill: var(--burgundy); }
+.gp-swirl { stroke: color-mix(in srgb, var(--burgundy-deep) 82%, black); fill: none; stroke-width: 1.1; stroke-linecap: round; }
+.gp-dot { fill: color-mix(in srgb, var(--burgundy-deep) 82%, black); }
+
+/* genda marigold */
+.gp-mari-a { fill: color-mix(in srgb, var(--champagne) 78%, #D97B2B); }
+.gp-mari-b { fill: color-mix(in srgb, var(--champagne) 72%, #E89A3C); }
+.gp-mari-c { fill: var(--gold-bright); }
+.gp-mari-heart { fill: color-mix(in srgb, var(--champagne-soft) 78%, #8A5E2C); }
+
+/* mogra jasmine */
+.gp-mogra { fill: color-mix(in srgb, var(--paper-raised) 92%, white); stroke: var(--gold-faint); stroke-width: .5; }
+.gp-mogra-heart { fill: var(--gold-bright); }
+
+/* leaves & vines */
+.gp-leaf-a { fill: color-mix(in srgb, var(--olive) 72%, var(--sage)); }
+.gp-leaf-b { fill: color-mix(in srgb, var(--olive-deep) 78%, var(--olive)); }
+.gp-vein { stroke: color-mix(in srgb, var(--gold-faint) 70%, var(--olive-deep)); stroke-width: .8; fill: none; }
+.gp-vine { stroke: var(--olive); stroke-width: 1.8; fill: none; stroke-linecap: round; }
+.gp-vine--thin { stroke: color-mix(in srgb, var(--olive) 72%, var(--olive-deep)); stroke-width: 1.1; fill: none; stroke-linecap: round; }
+.gp-bud { fill: var(--champagne-soft); }
+
+/* paisley ambi */
+.gp-pais-a { fill: color-mix(in srgb, var(--burgundy) 26%, transparent); stroke: var(--champagne-soft); stroke-width: 1.1; }
+.gp-pais-line { stroke: var(--champagne-soft); stroke-width: 1; fill: none; }
+.gp-pais-dot { fill: var(--gold-bright); }
+
+/* bandhani buti */
+.gp-buti-dot { fill: color-mix(in srgb, var(--burgundy) 55%, var(--crimson)); opacity: .85; }
+.gp-buti-heart { fill: var(--gold-bright); }
+
+/* kamal lotus */
+.gp-lotus-pad { fill: color-mix(in srgb, var(--sage) 55%, var(--olive)); }
+.gp-lotus-petal { fill: color-mix(in srgb, var(--crimson) 42%, var(--rose)); stroke: var(--gold-faint); stroke-width: .7; }
+.gp-lotus-core { fill: color-mix(in srgb, var(--burgundy) 46%, var(--crimson)); }
+.gp-lotus-heart { fill: var(--gold-bright); }
+
+/* latkan — string, bead, ghungroo, gota, tassel */
+.gp-string { stroke: var(--gold-line); stroke-width: 1; fill: none; }
+.gp-bead { fill: var(--champagne-soft); }
+.gp-bell { fill: var(--gold-bright); stroke: var(--gold-line); stroke-width: .7; }
+.gp-bell-clap { fill: var(--gilding); }
+.gp-gota { fill: var(--gold-bright); stroke: var(--champagne-soft); stroke-width: .6; }
+.gp-tassel { fill: var(--burgundy); opacity: .92; }
+
+/* jharokha dome */
+.gp-dome { fill: color-mix(in srgb, var(--rose) 55%, var(--crimson)); stroke: var(--champagne-soft); stroke-width: .9; }
+.gp-dome-finial { stroke: var(--champagne-soft); stroke-width: 1; fill: none; }
+.gp-dome-dot { fill: var(--gold-bright); }
+
+/* samai brass lamp */
+.gp-flame { fill: var(--gold-bright); }
+.gp-flame-core { fill: var(--crimson); }
+.gp-brass { fill: color-mix(in srgb, var(--champagne) 82%, var(--gold-bright)); }
+.gp-brass-deep { fill: var(--champagne-soft); }
+.gp-brass-shine { stroke: color-mix(in srgb, var(--paper-raised) 55%, transparent); stroke-width: 1.1; fill: none; }
+.gp-lamp-glow { fill: var(--gold-ghost); }
+
+/* ganesha invocation */
+.gp-gn-halo { fill: color-mix(in srgb, var(--champagne) 10%, transparent); }
+.gp-gn-gold { fill: var(--champagne); }
+.gp-gn-line { stroke: var(--champagne-soft); stroke-width: 1.5; fill: none; stroke-linecap: round; }
+.gp-gn-line--thin { stroke: var(--champagne-soft); stroke-width: 1; fill: none; stroke-linecap: round; }
+.gp-gn-lotus { fill: color-mix(in srgb, var(--burgundy) 34%, var(--crimson)); stroke: var(--gold-faint); stroke-width: .6; }
+.gp-gn-dot { fill: var(--gold-bright); }
+
+/* kalash */
+.gp-kalash-nariyal { fill: color-mix(in srgb, var(--ink) 72%, var(--champagne-soft)); }
+.gp-kalash-fiber { stroke: color-mix(in srgb, var(--paper-raised) 45%, transparent); stroke-width: .8; fill: none; }
+.gp-kalash-pot { fill: color-mix(in srgb, var(--champagne) 88%, var(--champagne-soft)); stroke: var(--champagne-soft); stroke-width: .9; }
+.gp-kalash-neck { fill: var(--champagne); stroke: var(--champagne-soft); stroke-width: .7; }
+.gp-kalash-rim { stroke: var(--gold-bright); stroke-width: 1.6; fill: none; stroke-linecap: round; }
+.gp-kalash-engrave { stroke: color-mix(in srgb, var(--champagne-soft) 78%, #8A5E2C); stroke-width: 1.1; fill: none; }
+.gp-kalash-engrave--thin { stroke-width: .8; }
+.gp-kalash-dot { fill: color-mix(in srgb, var(--champagne-soft) 78%, #8A5E2C); }
+
+/* mor peacock */
+.gp-mor-body { fill: color-mix(in srgb, var(--olive-deep) 82%, var(--olive)); }
+.gp-mor-shaft { stroke: color-mix(in srgb, var(--olive) 78%, var(--olive-deep)); stroke-width: 1.1; fill: none; }
+.gp-mor-eye { fill: var(--gold-bright); stroke: var(--champagne-soft); stroke-width: .7; }
+.gp-mor-eye-core { fill: var(--burgundy); }
+.gp-mor-eye-dot { fill: var(--parchment); }
+.gp-mor-wing { fill: color-mix(in srgb, var(--olive) 55%, var(--olive-deep)); }
+.gp-mor-beak { fill: var(--champagne); }
+.gp-mor-branch { stroke: var(--ink-soft); stroke-width: 1.4; fill: none; stroke-linecap: round; }
+
+/* banana fan */
+.gp-fan-heart { fill: var(--champagne-soft); }
+
+/* programme niche */
+.gp-niche-wash { fill: color-mix(in srgb, var(--rose) 16%, transparent); stroke: none; }
+.gp-niche-line { stroke: var(--champagne-soft); fill: none; stroke-width: 1.3; }
+.gp-niche-line--thin { stroke: var(--gold-line); fill: none; stroke-width: .8; }
+.gp-niche-bead { fill: var(--champagne-soft); stroke: none; }
+
+/* envelope lace — jharokha-dome ring */
+.gp-lace-ring { stroke: var(--gold-line); stroke-width: 1.3; fill: none; }
+.gp-lace-ring--soft { stroke: var(--gold-faint); stroke-width: 1; fill: none; }
+.gp-lace-scallop { stroke: var(--gold-faint); stroke-width: .9; fill: none; }
+.gp-lace-pearl { fill: var(--gilding-soft); }
+
+/* kamal-talai medallion */
+.gp-med-ring { stroke: var(--gold-line); stroke-width: 1.4; fill: none; }
+.gp-med-ring--soft { stroke: var(--gold-faint); stroke-width: 1; fill: none; }
+.gp-med-petal-a { fill: color-mix(in srgb, var(--crimson) 30%, transparent); stroke: var(--gold-faint); stroke-width: 1; }
+.gp-med-petal-b { fill: color-mix(in srgb, var(--rose) 40%, transparent); stroke: var(--gold-faint); stroke-width: .9; }
+.gp-med-pearl { fill: var(--gilding-soft); }
+.gp-med-core { fill: color-mix(in srgb, var(--burgundy) 30%, transparent); stroke: var(--gold-faint); stroke-width: .9; }
+.gp-med-heart { fill: color-mix(in srgb, var(--champagne) 26%, transparent); stroke: var(--gold-line); stroke-width: 1; }
+.gp-med-fish { fill: color-mix(in srgb, var(--champagne) 44%, transparent); stroke: var(--gold-line); stroke-width: .9; }
+.gp-med-fish-tail { fill: color-mix(in srgb, var(--champagne) 44%, transparent); }
+.gp-med-fish-eye { fill: var(--night); }
+
+/* shamiyana pavilion */
+.gp-pav-silk { fill: color-mix(in srgb, var(--rose) 62%, var(--crimson)); }
+.gp-pav-edge { stroke: var(--champagne-soft); stroke-width: 1.2; fill: none; }
+.gp-pav-finial { fill: var(--gold-bright); stroke: var(--champagne-soft); stroke-width: .7; }
+.gp-pav-pole { stroke: var(--gold-line); stroke-width: 1.6; fill: none; stroke-linecap: round; }
+.gp-pav-pole--foot { stroke: var(--gold-line); stroke-width: 1.6; fill: none; stroke-linecap: round; }
+.gp-pav-base { stroke: var(--paper-line); stroke-width: 1.2; fill: none; }
+
+/* lotus vignette pond */
+.gp-pad { fill: color-mix(in srgb, var(--sage) 48%, var(--olive)); }
+.gp-pad-notch { stroke: color-mix(in srgb, var(--olive-deep) 72%, transparent); stroke-width: 1; fill: none; }
+.gp-ripple { stroke: var(--gold-faint); stroke-width: 1; fill: none; stroke-linecap: round; }
+
+/* kolam wreath */
+.gp-kolam-line { stroke: var(--gilding-soft); stroke-width: 1.4; fill: none; }
+.gp-kolam-ring { stroke: var(--gold-faint); stroke-width: 1.2; fill: none; }
+.gp-kolam-ring--soft { stroke: var(--gold-ghost); stroke-width: 1; fill: none; }
+.gp-kolam-dot { fill: var(--gilding); }
+.gp-kolam-loop { stroke: var(--sunset-soft); stroke-width: 1.3; fill: none; }
+.gp-kolam-loop--thin { stroke: var(--night-faint); stroke-width: 1; fill: none; }
+.gp-kolam-petal { fill: none; stroke: var(--gold-faint); stroke-width: 1; }
+.gp-kolam-heart { fill: var(--ember); }
+
+/* kalash court — venue */
+.gp-venue-halo { stroke: var(--gold-faint); stroke-width: 1.4; fill: none; }
+.gp-venue-halo--soft { stroke: var(--gold-ghost); stroke-width: 1; fill: none; }
+.gp-venue-base { fill: color-mix(in srgb, var(--parchment) 30%, transparent); stroke: var(--paper-line); stroke-width: 1; }
+.gp-venue-base--soft { fill: none; stroke: var(--gold-ghost); stroke-width: 1; }
+.gp-venue-dot { fill: var(--champagne-soft); }
+.gp-stem { fill: color-mix(in srgb, var(--sage) 60%, var(--olive)); }
+.gp-stem-line { stroke: color-mix(in srgb, var(--olive-deep) 66%, transparent); stroke-width: 1; fill: none; }
+
+/* parda curtain */
+.gp-curtain-rod { fill: color-mix(in srgb, var(--ink) 62%, var(--champagne-soft)); }
+.gp-curtain-finial { fill: var(--gold-bright); stroke: var(--champagne-soft); stroke-width: .6; }
+.gp-curtain-silk { fill: color-mix(in srgb, var(--rose) 66%, var(--crimson)); stroke: var(--champagne-soft); stroke-width: 1; }
+.gp-curtain-fold { stroke: color-mix(in srgb, var(--burgundy) 28%, transparent); stroke-width: 1.2; fill: none; }
+.gp-curtain-tie { fill: var(--gold-bright); stroke: var(--champagne-soft); stroke-width: .8; }
+.gp-curtain-hem { stroke: var(--champagne-soft); stroke-width: 1.6; fill: none; }
+.gp-curtain-hem--dots { stroke: var(--gold-line); stroke-width: 1.6; fill: none; }
+
+/* date pendant */
+.gp-pendant { stroke: var(--champagne-soft); stroke-width: 1.6; fill: none; stroke-linecap: round; }
+.gp-pendant--thin { stroke: var(--gold-line); stroke-width: 1; fill: none; }
+.gp-pendant-dot { fill: var(--champagne-soft); }
+
+/* seals */
+.gp-seal-scallop-wax { fill: color-mix(in srgb, #8E2244 88%, var(--night)); }
+.gp-seal-scallop-gold { fill: color-mix(in srgb, #C68A3E 88%, var(--champagne-soft)); }
+.gp-seal-pearl { fill: var(--gilding); }
+
+/* date-orn on the hero card uses pendant paint; the lotus divider
+   keeps its dedicated stroke rules above. */
