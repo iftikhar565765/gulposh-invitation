@@ -64,10 +64,18 @@
   .day-word { width: 96px; }
 
   .venue-curtain { width: 17%; top: -3%; }
+  .venue-diya { right: 0; width: 16%; }
 
   .opening__florals--tl,
-  .opening__florals--tr { width: clamp(7.5rem, 24vw, 11rem); }
+  .opening__florals--tr { width: clamp(8rem, 26vw, 11.5rem); }
+  .opening__florals--bl,
+  .opening__florals--br { width: clamp(7.5rem, 24vw, 11rem); }
   .opening__watermark { font-size: 6.8rem; }
+
+  /* the closing toran stays full width; the cascade hugs the corner */
+  .closing-bloom--l { width: 106%; top: -2%; }
+  .closing-bloom--r { width: clamp(96px, 26vw, 150px); top: 4%; }
+  .scene--closing .scene-body { margin-top: 44vw; }
 }
 
 @media (max-width: 430px) {
@@ -96,27 +104,25 @@
   .korn--leaf-bl { width: 28%; }
   .korn--leaf-br { width: 28%; }
 
-  .kcard__crown { padding: 9% 13% 0; }
+  .kcard__crown { padding: 24% 13% 0; }
   .kcard__rect { padding-inline: 14px; }
 
   .hero-scroll__block { font-size: .52rem; }
 
   .chapter-num { font-size: 5.6rem; top: -0.8em; }
 
-  .closing-bloom { width: 96px; top: -4%; }
-  .closing-bloom--l { left: -5%; }
-  .closing-bloom--r { right: -5%; }
+  .closing-bloom--r { width: clamp(90px, 24vw, 140px); }
 
   .venue-stage { width: 94%; }
-  .venue-diya { right: -6%; width: 32%; }
+  .venue-diya { right: 0; width: 15%; }
 
   .count-clock { gap: 10px; }
   .count-unit { width: 70px; }
   .count-num { font-size: 1.6rem; }
 
   .opening__eyebrow { font-size: .6rem; }
-  .opening__florals--tl { width: 7.5rem; top: -1.8rem; left: -1.7rem; }
-  .opening__florals--tr { width: 7.5rem; top: -1.8rem; right: -1.7rem; }
+  .opening__florals--tl { width: 8rem; top: -1.8rem; left: -1.7rem; }
+  .opening__florals--tr { width: 8rem; top: -1.8rem; right: -1.7rem; }
   .opening__florals--bl,
-  .opening__florals--br { width: 7rem; }
+  .opening__florals--br { width: 7.5rem; }
 }

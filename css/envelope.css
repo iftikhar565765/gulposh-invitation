@@ -45,15 +45,16 @@
 
 .opening__florals {
   position: absolute;
-  width: clamp(9rem, 19vw, 14rem);
-  opacity: .6;
+  width: clamp(12rem, 26vw, 19rem);
+  opacity: .9;
   pointer-events: none;
   user-select: none;
+  filter: drop-shadow(0 10px 24px rgba(30, 5, 14, .45));
 }
-.opening__florals--tl { top: -1.4rem; left: -1.6rem; transform: rotate(7deg); }
-.opening__florals--tr { top: -1.4rem; right: -1.6rem; transform: scaleX(-1) rotate(7deg); }
-.opening__florals--bl { bottom: -1.4rem; left: -1.6rem; transform: rotate(9deg); opacity: .42; }
-.opening__florals--br { bottom: -1.4rem; right: -1.6rem; transform: scaleX(-1) rotate(9deg); opacity: .42; }
+.opening__florals--tl { top: -2.6rem; left: -2.6rem; transform: rotate(-4deg); }
+.opening__florals--tr { top: -2.6rem; right: -2.6rem; transform: scaleX(-1) rotate(-4deg); }
+.opening__florals--bl { bottom: -2.6rem; left: -2.6rem; transform: scaleY(-1) rotate(-4deg); opacity: .55; }
+.opening__florals--br { bottom: -2.6rem; right: -2.6rem; transform: scale(-1, -1) rotate(-4deg); opacity: .55; }
 
 /* ── drifting rose-petal motes ────────────────────────────────── */
 .opening__mote {
@@ -157,9 +158,10 @@
   position: absolute;
   width: 128%;
   aspect-ratio: 1;
-  opacity: .38;
+  opacity: .4;
   pointer-events: none;
   user-select: none;
+  mix-blend-mode: screen;
   filter: drop-shadow(0 2px 10px rgba(214, 154, 69, .16));
 }
 

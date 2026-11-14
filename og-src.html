@@ -27,8 +27,10 @@
   .rule svg { width:26px; height:26px; }
   .date { font-family:'Suranna',serif; color:#D69A45; font-size:34px; letter-spacing:.2em; }
   .venue { font-family:'Suranna',serif; color:rgba(246,232,210,.65); font-size:19px; letter-spacing:.12em; margin-top:10px; }
-  .canopy { position:absolute; top:0; left:0; width:100%; }
-  .swags { position:absolute; bottom:-6px; left:0; width:100%; }
+  .canopy { position:absolute; top:-2%; left:-3%; width:106%; height:175px; object-fit:cover; object-position:top center; -webkit-mask-image:linear-gradient(180deg,#000 58%,transparent 96%); mask-image:linear-gradient(180deg,#000 58%,transparent 96%); }
+  .sprig-bl, .sprig-br { position:absolute; bottom:-14px; width:clamp(150px, 17vw, 210px); height:auto; }
+  .sprig-bl { left:-16px; transform:scaleY(-1) rotate(8deg); }
+  .sprig-br { right:-16px; transform:scaleY(-1) scaleX(-1) rotate(8deg); }
 </style>
 </head>
 <body>
@@ -70,51 +72,9 @@
   </g>
 </svg>
 
-<svg class="canopy" width="1200" height="150" viewBox="0 0 1200 150" xmlns="http://www.w3.org/2000/svg">
-  <path fill="#E9B9AC" d="M0 0 H1200 V40 C 1125 96 1050 96 975 44 C 900 96 825 96 750 44 C 675 96 600 96 525 44 C 450 96 375 96 300 44 C 225 96 150 96 75 44 C 37 66 18 68 0 56 Z"/>
-  <path fill="none" stroke="#B37733" stroke-width="2" d="M1200 40 C 1125 96 1050 96 975 44 C 900 96 825 96 750 44 C 675 96 600 96 525 44 C 450 96 375 96 300 44 C 225 96 150 96 75 44 C 37 66 18 68 0 56"/>
-  <g fill="#D69A45">
-    <path d="M75 44 L80.5 53 L75 62 L69.5 53 Z"/><path d="M300 44 L305.5 53 L300 62 L294.5 53 Z"/>
-    <path d="M525 44 L530.5 53 L525 62 L519.5 53 Z"/><path d="M750 44 L755.5 53 L750 62 L744.5 53 Z"/>
-    <path d="M975 44 L980.5 53 L975 62 L969.5 53 Z"/>
-  </g>
-  <g stroke="#D69A45" stroke-width="1.4" fill="none">
-    <path d="M190 60 V118 M600 62 V132 M1010 60 V118"/>
-  </g>
-  <g fill="#A4284C">
-    <path d="M190 118 C 183 106 186 96 190 90 C 194 96 197 106 190 118 Z" transform="rotate(180 190 112)"/>
-    <path d="M600 132 C 591 118 594 106 600 98 C 606 106 609 118 600 132 Z"/>
-    <path d="M1010 118 C 1003 106 1006 96 1010 90 C 1014 96 1017 106 1010 118 Z" transform="rotate(180 1010 112)"/>
-  </g>
-  <g fill="#D69A45"><circle cx="190" cy="86" r="4"/><circle cx="600" cy="92" r="4"/><circle cx="1010" cy="86" r="4"/></g>
-</svg>
-
-<svg class="swags" width="1200" height="120" viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg">
-  <path d="M-20 10 C 120 96 320 96 460 30" fill="none" stroke="#5A7A3A" stroke-width="3"/>
-  <path d="M1220 10 C 1080 96 880 96 740 30" fill="none" stroke="#5A7A3A" stroke-width="3"/>
-  <g>
-    <g transform="translate(90 58)"><circle r="17" fill="#D69A45"/><circle r="12" fill="#E3B367"/><circle r="6.5" fill="#B37733"/></g>
-    <g transform="translate(170 76)"><circle r="19" fill="#D69A45"/><circle r="13.5" fill="#E3B367"/><circle r="7" fill="#B37733"/></g>
-    <g transform="translate(255 86)"><circle r="20" fill="#D69A45"/><circle r="14" fill="#E3B367"/><circle r="7.4" fill="#B37733"/></g>
-    <g transform="translate(345 76)"><circle r="19" fill="#D69A45"/><circle r="13.5" fill="#E3B367"/><circle r="7" fill="#B37733"/></g>
-    <g transform="translate(425 52)"><circle r="17" fill="#D69A45"/><circle r="12" fill="#E3B367"/><circle r="6.5" fill="#B37733"/></g>
-    <g transform="translate(1110 58)"><circle r="17" fill="#D69A45"/><circle r="12" fill="#E3B367"/><circle r="6.5" fill="#B37733"/></g>
-    <g transform="translate(1030 76)"><circle r="19" fill="#D69A45"/><circle r="13.5" fill="#E3B367"/><circle r="7" fill="#B37733"/></g>
-    <g transform="translate(945 86)"><circle r="20" fill="#D69A45"/><circle r="14" fill="#E3B367"/><circle r="7.4" fill="#B37733"/></g>
-    <g transform="translate(855 76)"><circle r="19" fill="#D69A45"/><circle r="13.5" fill="#E3B367"/><circle r="7" fill="#B37733"/></g>
-    <g transform="translate(775 52)"><circle r="17" fill="#D69A45"/><circle r="12" fill="#E3B367"/><circle r="6.5" fill="#B37733"/></g>
-  </g>
-  <g fill="#5A7A3A">
-    <ellipse cx="130" cy="62" rx="14" ry="6" transform="rotate(-18 130 62)"/>
-    <ellipse cx="213" cy="82" rx="14" ry="6" transform="rotate(14 213 82)"/>
-    <ellipse cx="300" cy="94" rx="15" ry="6"/>
-    <ellipse cx="388" cy="82" rx="14" ry="6" transform="rotate(-14 388 82)"/>
-    <ellipse cx="1070" cy="62" rx="14" ry="6" transform="rotate(18 1070 62)"/>
-    <ellipse cx="987" cy="82" rx="14" ry="6" transform="rotate(-14 987 82)"/>
-    <ellipse cx="900" cy="94" rx="15" ry="6"/>
-    <ellipse cx="812" cy="82" rx="14" ry="6" transform="rotate(14 812 82)"/>
-  </g>
-</svg>
+<img class="canopy" src="assets/art/garland-swag.webp" alt="" aria-hidden="true">
+<img class="sprig-bl" src="assets/art/corner-cascade.webp" alt="" aria-hidden="true">
+<img class="sprig-br" src="assets/art/corner-cascade.webp" alt="" aria-hidden="true">
 
 <div class="inner">
   <p class="shloka">॥ श्री गणेशाय नमः ॥</p>
